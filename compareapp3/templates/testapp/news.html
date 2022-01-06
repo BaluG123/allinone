@@ -1,0 +1,94 @@
+{% extends 'testapp/base.html' %}
+{% load static %}
+{% block title %}
+Trending News
+{% endblock %}
+{% block content %}
+
+<style>
+  a.title:visited{
+    color: green;
+  }
+  .box{
+    text-align: center;
+    justify-content: center;
+  }
+</style>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href='/trends'><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
+      <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+      <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+    </svg></a>
+    <a class="navbar-brand" href='/'><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </svg></a>
+    <a class="navbar-brand" href='/youtube'><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="red" class="bi bi-youtube" viewBox="0 0 16 16">
+      <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+    </svg></a>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='q'>
+    </form>
+</nav>
+<div>
+  <!--
+  <div class="container">
+    <ul class="top row">
+      <li class="col-lg-3 col-3 col-md-3 col-sm-4 col-xs6">
+        <a  href="#">Home</a>
+      </li>
+      <li class="col-lg-3 col-3 col-md-3 col-sm-4 col-xs6">
+        <b><a  href="/trend" style="width: 100%;">Home</a></b>
+      </li>
+      <li class="col-lg-3 col-3 col-md-3 col-sm-4 col-xs6">
+        <b><a  href="/national" style="width: 100%;">National</a></b>
+      </li>
+      <li class="col-lg-3 col-3 col-md-3 col-sm-4 col-xs6">
+        <b><a  href="/international" style="width: 100%;">International</a></b>
+      </li>
+    </ul>
+  </div> -->
+
+  <!--
+  <div class="container">
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2 col-md-12 col-12 col-lg-6 col-xl-6 " type="search" placeholder="Search" name='q'>
+  </form>
+</div>
+</div>-->
+<div class="container">
+  <!--
+<div class="row fixed-bottom box" style="margin-left: 0px 0px;padding:4px">
+  <div class="col-lg-6 col-md-6 col-6 col-sm-6 col-xl-6"><a href="/trend"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
+    <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+    <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+  </svg></a></div>
+  <div class="col-lg-6 col-md-6 col-2 col-sm-6 col-xl-6"><a href="/home"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </svg></a></div>
+</div>-->
+</div>
+
+
+{% if tag %}
+<h2 style="color:#3b5998"> #{{tag.name}}</h2>
+{% endif %}
+<div class="container">
+  <small style="color:red;">Trending news today</small>
+</div>
+{% for trend in trends_list %}
+<div class="container" style="border:1px solid black;border-radius:10px;padding-top:10px;margin-bottom:10px;">
+<a href="{{trend.link}}" class="title" style="color:blue;" target="_blank"><h5>{{trend.title}}</h5></a>
+{% if trend.image %}
+<img src="{{trend.image.url}}" width="300px" height="auto" alt="">
+<p>{{trend.body}},<span style="color: gray;">source:{{trend.source|title}}</span></p>
+<!--
+<div class="container">
+    {% for tag in trend.tags.all %}
+     <a href="{% url 'news_tag' tag.slug %}"><p style="display: inline;"> <span>#{{tag.name}} </span></p> </a>
+      {% endfor %}
+    </div> -->
+</div>
+{% endif %}
+{% endfor %}
+{% include 'testapp/paginator.html' with page=trends_list %}
+{% endblock %}

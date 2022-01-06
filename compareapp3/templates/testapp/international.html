@@ -1,0 +1,50 @@
+{% extends 'testapp/base.html' %}
+{% load static %}
+{% block title %}
+Trending News
+{% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/trend">B<span style="color: Orange;">News</span></a>
+  <ul class="navbar-nav mr-auto mt-6 mt-lg-2">
+    
+  </ul>
+  <!--
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='q'>
+  </form>-->
+</nav>
+<div>
+  <div class="container">
+    <p><a href="/trend">Home</a></p>
+    <!--
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2 col-md-12 col-12 col-lg-6 col-xl-6 " type="search" placeholder="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form> -->
+</div>
+</div>
+
+{% if tag %}
+<h2 style="color:#3b5998"> #{{tag.name}}</h2>
+{% endif %}
+<div class="container">
+  <small style="color:red;">International Trending news today</small>
+</div><br>
+{% for trend in trends_list %}
+<div class="container" style="border:1px solid black;border-radius:10px;padding-top:10px;margin-bottom:10px;">
+<a href="{{trend.link}}" target="_blank"><h5>{{trend.title}}</h5></a>
+{% if trend.image %}
+<img src="{{trend.image.url}}" width="300px" height="auto" alt="">
+<p>{{trend.body}},<span style="color: gray;">source:{{trend.source|title}}</span></p>
+<!--
+<div class="container">
+    {% for tag in trend.tags.all %}
+     <a href="{% url 'news_tag' tag.slug %}"><p style="display: inline;"> <span>#{{tag.name}} </span></p> </a>
+      {% endfor %}
+    </div> -->
+</div>
+{% endif %}
+{% endfor %}
+{% include 'testapp/paginator.html' with page=trends_list %}
+{% endblock %}
